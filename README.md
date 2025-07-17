@@ -10,7 +10,7 @@ Elections Predictor is a project aimed at forecasting election outcomes based on
 
 * Data was scraped from: 
     * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2019](https://www.cvk.gov.ua/pls/vp2019/wp300pt001f01=719.html) | [go to part of readme](#2019)
-    * [2014](https://www.cvk.gov.ua/pls/vp2014/wp001.html) | [go to part of readme](#2014) 
+    * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2014](https://www.cvk.gov.ua/pls/vp2014/wp001.html) | [go to part of readme](#2014) 
     * [2010]() 
     * [2004]() 
     * [1999]()
@@ -69,13 +69,57 @@ data/
 <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25>
 
 -->
-###  2014
+### <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25> 2014
 **Python Scripts:**
-1. [2014.py](src/scrapping/2014.py)
+* [2014.py](src/scrapping/2014.py)
 
-5. so, the result of scraping:
+**My steps:**
+1. my steps were pretty much the same. (1) I created file `2014.py` and created folders where the data would be stored
+2. then I scraped the first table `candidate — final result` and created file with this information. from [this page](https://www.cvk.gov.ua/pls/vp2014/wp300pt001f01=702.html) → [this file](data/raw/2014/final/final_results_2014.csv). example: 
+```text
+Кандидат,"% голосів виборців, поданих за кандидата","Кількість голосів виборців, поданих за кандидата"
+Порошенко П. О.,54.70,9 857 308
+```
+3. for my next step I scraped data from pages about regions and stored created files in folder. `21 csv files` with relationships `candidate — region`. example:
+```text
+Регіон,"% голосів виборців, поданих за кандидата",Рейтинг,"Кількість виборців, які взяли участь у голосуванні в межах регіону",% опрацьованих протоколів
+Луганська,0.28,16,52 239,100.00
+Донецька,0.27,16,115 823,100.00
+``` 
+4. then I scraped data per regions to get election results per districts. stored in `21 folders`, each folder has `25 csv files`. example:
+```text
+data/
+│
+└── raw/
+    │
+    └── 2014/
+        │
+        └── regions_data/
+            │
+            └── by_candidate/
+                │
+                ├── Богомолець_Ольга_Вадимівна /
+                │
+                ├── ...
+                │
+                └── Ярош_Дмитро_Анатолійович/
+```
+5. finally, I moved all files into one csv file for regions and one csv file for districts. example:
+```text
+Регіон,"% голосів виборців, поданих за кандидата",Рейтинг,"Кількість виборців, які взяли участь у голосуванні в межах регіону",% опрацьованих протоколів,Кандидат
+Запорізька,2.98,9,735 764,100.0,Богомолець Ольга Вадимівна
+```
+
+```text
+Округ,"% голосів виборців, поданих за кандидата",Рейтинг,"Кількість виборців, які взяли участь у голосуванні в межах ТВО",% опрацьованих протоколів,Область,Кандидат
+84,2.18,5.0,128 962,100.0,Івано-Франківська область,Богомолець Ольга Вадимівна
+```
+6. so, the result of scraping:
     
     * [candidates table](data/raw/2014/final/final_results_2014.csv)
+    * [candidate — region results](data/raw/2014/final/final_results_by_regions.csv)
+    * [candidate — districts results](data/raw/2014/final/candidate_district.csv)
+
 ###  2010
 ###  2004
 ###  1999

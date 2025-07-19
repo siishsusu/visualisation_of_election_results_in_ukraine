@@ -119,15 +119,25 @@ data/
     * [candidate — region results](data/raw/2014/final/final_results_by_regions.csv)
     * [candidate — districts results](data/raw/2014/final/candidate_district.csv)
 
-###  2010
-6. so, the result of scraping:
+### <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25> 2010
+**Python Scripts:**
+* [2010.py](src/scrapping/2010.py)
+
+**My steps:**
+1. scraping process was similar to [previous one](#2014)
+2. so, the result of scraping:
     
     * [candidates table](data/raw/2010/final/final_results_2010.csv)
     * [candidate — region results](data/raw/2010/final/final_results_by_regions.csv)
     * [candidate — districts results](data/raw/2010/final/candidate_district.csv)
 
-###  2004
-6. so, the result of scraping:
+### <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25> 2004
+**Python Scripts:**
+* [2004.py](src/scrapping/2004.py)
+
+**My steps:**
+1. scraping process was similar to [previous one](#2014)
+2. so, the result of scraping:
     
     * [candidates table](data/raw/2004/final/final_results_2004.csv)
     * [candidate — region results](data/raw/2004/final/final_results_by_regions.csv)

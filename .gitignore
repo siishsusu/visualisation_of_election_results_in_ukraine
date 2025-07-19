@@ -1,2 +1,5 @@
 /data
 /.git
+src/__init__.py
+src/scrapping/__pycache__
+src/scrapping/__init__.py

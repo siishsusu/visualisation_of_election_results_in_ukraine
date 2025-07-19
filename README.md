@@ -13,7 +13,6 @@ Elections Predictor is a project aimed at forecasting election outcomes based on
     * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2014](https://www.cvk.gov.ua/pls/vp2014/wp001.html) | [go to part of readme](#2014) 
     * [2010]() 
     * [2004]() 
-    * [1999]()
 
 
 * Clean and preprocess the data for analysis
@@ -121,5 +120,15 @@ data/
     * [candidate — districts results](data/raw/2014/final/candidate_district.csv)
 
 ###  2010
+6. so, the result of scraping:
+    
+    * [candidates table](data/raw/2010/final/final_results_2010.csv)
+    * [candidate — region results](data/raw/2010/final/final_results_by_regions.csv)
+    * [candidate — districts results](data/raw/2010/final/candidate_district.csv)
+
 ###  2004
-###  1999
+6. so, the result of scraping:
+    
+    * [candidates table](data/raw/2004/final/final_results_2004.csv)
+    * [candidate — region results](data/raw/2004/final/final_results_by_regions.csv)
+    * [candidate — districts results](data/raw/2004/final/candidate_district.csv)

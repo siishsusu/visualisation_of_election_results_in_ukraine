@@ -9,6 +9,11 @@ url = 'https://www.cvk.gov.ua/pls/vp2014/wp300pt001f01=702.html'
 base_url = 'https://www.cvk.gov.ua/pls/vp2014/'
 base_folder_path = 'data/raw/2014/'
 base_folder_path_for_candidates = 'data/raw/2014/regions_data/by_candidate/'
+# setting folder path to save created dataframe to file
+# base_folder_path = data/raw/2014/ 
+#                  → data/raw/2014/final
+path_to_save = f'{base_folder_path}final/'
+
 # f'data/raw/2014/final/final_results_2014.csv'
 
 
@@ -107,6 +112,86 @@ def scraping_data_regions_districts_to_files(url, base_url, final_results_df):
     return 'Done'
 
 
+def get_files_and_folders(base_folder_path):
+    # getting files / folders from directory of 2019'th selection
+    last_data = os.listdir(base_folder_path) # ['final', 'regions_data']
+
+    # base_folder_path = data/raw/2014/ → data/raw/2014/regions_data
+    last_data = os.listdir(f'{base_folder_path}regions_data')
+    # ['by_candidate', 'Богомолець_Ольга_Вадимівна.csv', ... 'Ярош_Дмитро_Анатолійович.csv']
+
+    # getting csv files
+    csv_files = [file for file in last_data if '.csv' in file]
+    # 'Богомолець_Ольга_Вадимівна.csv', ... 'Ярош_Дмитро_Анатолійович.csv'
+
+    # getting folders
+    # base_folder_path = data/raw/2014/ 
+    #                  → data/raw/2014/regions_data 
+    #                  → data/raw/2014/regions_data/by_candidate
+    folders = os.listdir(f'{base_folder_path}regions_data/by_candidate')
+    # filtering files from folder name (in case there were some)
+    folders = [folder for folder in folders if '.csv' not in folder]
+    
+    return csv_files, folders
+
+def create_regions_and_districts_files(base_folder_path=base_folder_path, 
+                                       base_folder_path_for_candidates=base_folder_path_for_candidates):
+    # getting list of csv files and folders out of specified folder
+    csv_files, folders = get_files_and_folders(base_folder_path=base_folder_path)
+
+    # creating dataframe for scoring all data
+    final_df = pd.DataFrame()
+
+    # creating df to store data for each region for candidate
+    df_candidate_final = pd.DataFrame()
+
+
+    # iterating through csv_files list
+    for file_name in csv_files:
+        # folder_name.csv = file_name   →   folder_name = file_name.replace('.csv', '')
+        folder_name = file_name.replace('.csv', '')
+        
+        # getting files from the folder
+        files_in_folder = os.listdir(f'{base_folder_path_for_candidates}{folder_name}')
+
+        # iterating through files_in_folder list
+        for folder_file in files_in_folder:
+            # setting file path
+            file_path = f'{base_folder_path_for_candidates}{folder_name}/{folder_file}'
+            
+            # reading file to df
+            df = pd.read_csv(file_path)
+            
+            # creating region column
+            df['Область'] = ' '.join(folder_file.replace('.csv', '').split('_'))
+            df['Кандидат'] = ' '.join(folder_name.split('_'))
+
+            # concating with final dataframe
+            df_candidate_final = pd.concat([df_candidate_final, df], axis=0)
+
+
+        # setting file path
+        file_path = f'{base_folder_path}regions_data/{file_name}'
+
+        # reading csv file
+        df = pd.read_csv(file_path)
+
+        # creating candidate column
+        df['Кандидат'] = ' '.join(folder_name.split('_'))
+
+        # concating with final dataframe
+        final_df = pd.concat([final_df, df], axis=0)
+
+
+    # saving to file
+    df_candidate_final.to_csv(f'{path_to_save}candidate_district.csv', index=False)
+    print('File candidate_district.csv was saved successfully!!!')
+
+    # saving to file
+    final_df.to_csv(f'{path_to_save}final_results_by_regions.csv', index=False)
+    print('File final_results_by_regions.csv was saved successfully!!!')
+
+
 # (1) creating folders if they do not exist
 # create_folder(where='data/raw/', new_folder='2014')
 # create_folder(where='data/raw/2014', new_folder='final')
@@ -131,78 +216,7 @@ def scraping_data_regions_districts_to_files(url, base_url, final_results_df):
 
 
 # (4) preprocessing data for further actions
-# getting files / folders from directory of 2019'th selection
-last_data = os.listdir(base_folder_path) # ['final', 'regions_data']
-
-# base_folder_path = data/raw/2014/ → data/raw/2014/regions_data
-last_data = os.listdir(f'{base_folder_path}regions_data')
-# ['by_candidate', 'Богомолець_Ольга_Вадимівна.csv', ... 'Ярош_Дмитро_Анатолійович.csv']
-
-# getting csv files
-csv_files = [file for file in last_data if '.csv' in file]
-# 'Богомолець_Ольга_Вадимівна.csv', ... 'Ярош_Дмитро_Анатолійович.csv'
-
-# getting folders
-# base_folder_path = data/raw/2014/ 
-#                  → data/raw/2014/regions_data 
-#                  → data/raw/2014/regions_data/by_candidate
-folders = os.listdir(f'{base_folder_path}regions_data/by_candidate')
-# filtering files from folder name (in case there were some)
-folders = [folder for folder in folders if '.csv' not in folder]
-
-# creating dataframe for scoring all data
-final_df = pd.DataFrame()
-
-# creating df to store data for each region for candidate
-df_candidate_final = pd.DataFrame()
-
-# setting folder path to save created dataframe to file
-# base_folder_path = data/raw/2014/ 
-#                  → data/raw/2014/final
-path_to_save = f'{base_folder_path}final/'
-
-
-# iterating through csv_files list
-for file_name in csv_files:
-    # folder_name.csv = file_name   →   folder_name = file_name.replace('.csv', '')
-    folder_name = file_name.replace('.csv', '')
-    
-    # getting files from the folder
-    files_in_folder = os.listdir(f'{base_folder_path_for_candidates}{folder_name}')
-
-    # iterating through files_in_folder list
-    for folder_file in files_in_folder:
-        # setting file path
-        file_path = f'{base_folder_path_for_candidates}{folder_name}/{folder_file}'
-        
-        # reading file to df
-        df = pd.read_csv(file_path)
-        
-        # creating region column
-        df['Область'] = ' '.join(folder_file.replace('.csv', '').split('_'))
-        df['Кандидат'] = ' '.join(folder_name.split('_'))
-
-        # concating with final dataframe
-        df_candidate_final = pd.concat([df_candidate_final, df], axis=0)
-
-
-    # setting file path
-    file_path = f'{base_folder_path}regions_data/{file_name}'
-
-    # reading csv file
-    df = pd.read_csv(file_path)
-
-    # creating candidate column
-    df['Кандидат'] = ' '.join(folder_name.split('_'))
-
-    # concating with final dataframe
-    final_df = pd.concat([final_df, df], axis=0)
-
-
-# saving to file
-df_candidate_final.to_csv(f'{path_to_save}candidate_district.csv', index=False)
-print('File candidate_district.csv was saved successfully!!!')
-
-# saving to file
-final_df.to_csv(f'{path_to_save}final_results_by_regions.csv', index=False)
-print('File final_results_by_regions.csv was saved successfully!!!')
+# create_regions_and_districts_files()
+# → in result I have 2 csv files
+#       final_results_by_regions.csv
+#       candidate_district.csv

@@ -11,8 +11,8 @@ Elections Predictor is a project aimed at forecasting election outcomes based on
 * Data was scraped from: 
     * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2019](https://www.cvk.gov.ua/pls/vp2019/wp300pt001f01=719.html) | [go to part of readme](#2019)
     * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2014](https://www.cvk.gov.ua/pls/vp2014/wp001.html) | [go to part of readme](#2014) 
-    * [2010]() 
-    * [2004]() 
+    * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2010](https://www.cvk.gov.ua/pls/vp2010/WP0011.html) | [go to part of readme](#2010) 
+    * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2004](https://www.cvk.gov.ua/pls/vp2004/wp0011.html)  | [go to part of readme](#2004) 
 
 
 * Clean and preprocess the data for analysis

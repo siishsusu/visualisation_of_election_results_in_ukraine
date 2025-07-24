@@ -1,4 +1,4 @@
-from functions import get_table, df_to_file
+from src.functions.functions import get_table, df_to_file
 from scrape_region_district_data import scraping_data_regions_districts_to_files
 from preprocess_created_files import create_regions_and_districts_files
 

@@ -1,4 +1,6 @@
-/data
+# data folder
+/data/raw
+/data/maps
 /.git
 src/__init__.py
 src/scrapping/__pycache__

@@ -1,4 +1,4 @@
-from functions import get_file_hrefs, create_folder, get_name, get_tables_to_csv
+from src.functions.functions import get_file_hrefs, create_folder, get_name, get_tables_to_csv
 import time
 import random
 

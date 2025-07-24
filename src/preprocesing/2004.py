@@ -38,7 +38,7 @@ candidates = {
 }
 
 
-# final data visualization
+# final data preprocessing
 df_final = pd.read_csv(f'{base_data_path}{data_path["final"]}')
 # renaming columns
 df_final.columns = ['candidate', 'percent_voters', 'number_voters']

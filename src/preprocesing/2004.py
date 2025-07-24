@@ -132,3 +132,44 @@ df_regions = df_regions[['candidate', 'region', 'region_eng', 'percent_votes', '
 
 # saving to file
 df_regions.to_csv('data/preprocessed/2004/regions_2004.csv', index=False)
+
+
+# -------------- districts data preprocessing --------------
+df_dist = pd.read_csv(f'{base_data_path}{data_path["districts"]}')
+# renaming columns
+df_dist.columns = ['district', 'percent_voters_per_candidate', 'rating',
+       'number_voters', 'percent_processed_votes', 'region', 'candidate']
+
+# print(df_dist['percent_processed_votes'].unique())
+# print(df_regions['percent_processed_votes'].unique())
+#   [100.]  →   so, I'm dropping this column
+df_dist.drop(['percent_processed_votes'], axis=1, inplace=True)
+
+# print(df_dist['number_voters'].sample(10))
+#   number_voters should be cast as 'int64'
+# example of data in column 'number_voters': '83 790',
+#   so, firstly I'm replacing spaces to nothing
+df_dist['number_voters'] =df_dist['number_voters']\
+    .apply(lambda x: int(x.replace(' ', '')))
+
+# looking for rows where there is no ' область' in region column
+# print(df_dist[~(df_dist['region'].str.contains(' область'))])
+#   I see a lot of 'м.Київ', so my next step:
+# print(df_dist[~(df_dist['region'].str.contains(' область'))]['region'].unique())
+#   ['м.Київ'], so I was right, there are only 'м.Київ' and '(something) область' rows
+
+# deleting ' область' to translate regions
+df_dist['region'] = df_dist['region'].apply(lambda x: x.replace(' область', '').strip())
+
+# changing names of candidates to full
+df_dist['candidate'] = df_dist['candidate'].apply(lambda x: candidates[f'{x.replace(".", ". ")}.'])
+
+# creating translated column
+df_dist['region_eng'] = df_dist['region'].apply(lambda x: regions_translation[x])
+
+# changing the order of columns
+df_dist = df_dist[['candidate', 'region', 'region_eng', 'district', 
+                   'percent_voters_per_candidate', 'rating', 'number_voters']]
+
+# saving to file
+df_regions.to_csv('data/preprocessed/2004/districts_2004.csv', index=False)

@@ -1,8 +1,4 @@
 import pandas as pd
-import geopandas as gpd
-import matplotlib.pyplot as plt
-import plotly.express as px
-import seaborn as sns
 import os
 
 
@@ -39,9 +35,3 @@ if '2019' not in os.listdir('data/preprocessed'):
 
 # saving file to folder 
 df_final.to_csv('data/preprocessed/2019/final_2019.csv', index=False)
-
-
-# geopandas file of ukrainian map to visualize on
-df_places = gpd.read_file('data/maps/ua.json')
-# df_places.plot()
-# plt.show()

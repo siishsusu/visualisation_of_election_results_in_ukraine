@@ -70,10 +70,12 @@ regions_translation = {
 }
 
 
-# final data preprocessing
+# -------------- final data preprocessing --------------
 df_final = pd.read_csv(f'{base_data_path}{data_path["final"]}')
+
 # renaming columns
 df_final.columns = ['candidate', 'percent_voters', 'number_voters']
+
 # print(df_final.info()) →
 #   percent_voters is already in 'float64'
 #   number_voters should be cast as 'int64'
@@ -81,10 +83,14 @@ df_final.columns = ['candidate', 'percent_voters', 'number_voters']
 #   so, firstly I'm replacing spaces to nothing
 df_final['number_voters'] = df_final['number_voters']\
     .apply(lambda x: int(x.replace(' ', '')))
+
 # print(df_final.info()) →
 #   number_voters should be cast as 'int64'
+
 # print(df_final['candidate'].unique())
+
 df_final['candidate'] = df_final['candidate'].apply(lambda x: candidates[x])
+
 # print(df_final.columns[df_final.isna().sum() > 0]) →
 #   Index([], dtype='object')
 

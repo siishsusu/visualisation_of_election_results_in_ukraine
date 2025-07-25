@@ -224,7 +224,7 @@ if st.session_state.selected_file:
     )
 
     st.plotly_chart(fig)
-    # 6. What portion of total votes went to candidates with <5% support?
+    
     st.markdown(f":orange[**Answer:**] The portion of votes went to candidates \
                 with <5% support is (*{below_5['number_voters'].sum()}*) \
                     {below_5.shape[0] / df.shape[0]:.2f}%")

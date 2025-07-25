@@ -19,6 +19,11 @@ Elections Predictor is a project aimed at forecasting election outcomes based on
 * Build machine learning models to predict future election outcomes
 * Visualize trends, turnout, and candidate support
 
+## <img height=25 src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3NnamFraTl2dnlnaXB3OHJjeDd6Z29xN2VyNGZpNXh4NnJ3MHI2ZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/DDGQgJLkOlSKe08e74/giphy.gif'> Preview
+### Final Results Page
+<img src='data/gifs/final_results_page.gif'>
+
+
 ## <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXdxdnpjd2Fnbmp3aGVkNngzcW8zc3liZnlzdXBpczM2bWxqYXZzeiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/lNdz4GzldDzGMGXr2Y/giphy.gif' height=25></img> Data Scraping
 ### <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25> 2019
 1. main page was scrapped to one file: [page](https://www.cvk.gov.ua/pls/vp2019/wp300pt001f01=719.html) → [final_results_2019.csv](data/raw/final_results_2019.csv)

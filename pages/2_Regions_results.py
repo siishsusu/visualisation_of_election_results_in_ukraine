@@ -306,6 +306,8 @@ if st.session_state.selected_file:
                 of votes is: {average_best_candidate}")
     
     # 6. What is the vote share gap between the top two candidates in each region?
+    st.info(f':orange[What is the vote share gap between the top two candidates in each region?]')
+
     top_two_candidates_per_regions = (
         df
         .groupby('region')
@@ -356,9 +358,33 @@ if st.session_state.selected_file:
     fig.update_layout(
         xaxis_tickangle=-45,
         yaxis_title='Vote Share',
+        xaxis_title='Region',
         legend_title='Candidate',
         margin=dict(b=150, t=50)
     )
 
     st.plotly_chart(fig)
 
+    # 7. How fragmented is the vote in each region?
+    st.info(f':orange[How fragmented is the vote in each region?]')
+
+    st.subheader("📌 Select Region to View Details")
+    selected = st.selectbox("Choose a region:", df['region'].unique())
+    selected_region_data = df[df['region'] == selected].sort_values(by='number_votes', 
+                                                                    ascending=False)
+
+    fig_seven = go.Figure()
+
+    fig_seven.add_trace(go.Pie(
+        labels=selected_region_data['candidate'],
+        values=selected_region_data['number_votes'],
+        hoverinfo='label+percent',
+        textinfo='value',
+        marker=dict(colors=px.colors.sequential.solar)
+    ))
+
+    fig_seven.update_layout(title_text='Vote Distribution in Selected Region')
+
+    st.plotly_chart(fig_seven)
+
+    # st.info(f':orange[]')

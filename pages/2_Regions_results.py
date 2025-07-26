@@ -304,3 +304,60 @@ if st.session_state.selected_file:
     st.plotly_chart(fig)
     st.markdown(f":orange[**Answer:**] candidate with the highest average number \
                 of votes is: {average_best_candidate}")
+    
+    # 6. What is the vote share gap between the top two candidates in each region?
+    top_two_candidates_per_regions = (
+        df
+        .groupby('region')
+        .apply(lambda group: group.nlargest(2, columns='number_votes'))
+        .reset_index(drop=True)
+    )
+    top_two_sorted = top_two_candidates_per_regions\
+        .sort_values(['region', 'number_votes'], ascending=[True, False])
+    
+    gap_df = top_two_sorted.groupby('region').agg(
+        top_rating=('number_votes', 'first'),
+        second_rating=('number_votes', lambda x: x.iloc[1] if len(x) > 1 else None)
+    )
+
+    gap_df.columns = ['top_rating', 'second_rating']
+    gap_df['vote_share_gap'] = gap_df['top_rating'] - gap_df['second_rating']
+    gap_df = gap_df.reset_index()
+
+
+    fig = go.Figure()
+
+    fig = go.Figure(go.Bar(
+        x=gap_df['region'],
+        y=gap_df['vote_share_gap'],
+        marker_color='maroon'
+    ))
+
+    fig.update_layout(
+        title='Vote Share Gap Between Top Two Candidates per Region',
+        xaxis_title='Region',
+        yaxis_title='Vote Share Gap',
+        xaxis_tickangle=-45,
+        margin=dict(t=50, b=150)
+    )
+
+    st.plotly_chart(fig)
+
+    fig = px.bar(
+        top_two_candidates_per_regions,
+        x='region',
+        y='number_votes',
+        color='candidate',
+        barmode='group',
+        title='Top Two Candidates Vote Share by Region',
+        color_continuous_scale=px.colors.sequential.Reds
+    )
+
+    fig.update_layout(
+        xaxis_tickangle=-45,
+        yaxis_title='Vote Share',
+        legend_title='Candidate',
+        margin=dict(b=150, t=50)
+    )
+
+    st.plotly_chart(fig)

@@ -383,8 +383,6 @@ if st.session_state.selected_file:
         marker=dict(colors=px.colors.sequential.solar)
     ))
 
-    fig_seven.update_layout(title_text='Vote Distribution in Selected Region')
+    fig_seven.update_layout(title=f'Vote Distribution in Selected Region {selected}')
 
     st.plotly_chart(fig_seven)
-
-    # st.info(f':orange[]')

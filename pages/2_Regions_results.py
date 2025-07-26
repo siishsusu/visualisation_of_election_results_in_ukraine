@@ -223,3 +223,37 @@ if st.session_state.selected_file:
         {'; '.join([f"{cand} won in {df_top_candidates['candidate'].value_counts()[cand]} regions" 
                     for cand in df_top_candidates["candidate"].unique()])}"""
     )
+
+    # 4. Which region had the highest overall voter turnout?
+    st.info(f':orange[Which region had the highest overall voter turnout?]')
+    regions_data = df.groupby(by='region')[['num_voters_per_region']].sum()
+    
+    fig = go.Figure()
+
+    max_row = regions_data.loc[regions_data['num_voters_per_region'].idxmax()]
+    max_region = regions_data['num_voters_per_region'].idxmax()
+    num_voters = max_row['num_voters_per_region']
+
+    regions_data['color'] = ['red' if region == max_region \
+                             else 'grey' for region in regions_data.index]
+
+    fig.add_trace(go.Bar(
+        x=regions_data.index,
+        y=regions_data['num_voters_per_region'],
+        marker_color=regions_data['color']
+    ))
+
+    fig.update_layout(
+        title='Total Number of Voters Per Region',
+        yaxis=dict(
+            title='Total Number of Votes',
+            side='left'
+        ),
+        xaxis=dict(
+            title='Region'
+        )
+    )
+
+    st.plotly_chart(fig)
+    st.markdown(f":orange[**Answer:**] region with the highest number of votes is: \
+                {max_region}")

@@ -23,6 +23,9 @@ Elections Predictor is a project aimed at forecasting election outcomes based on
 ### Final Results Page
 <img src='data/gifs/final_results_page.gif'>
 
+### Regions Results Page
+<img src='data/gifs/regions_page.gif'>
+
 
 ## <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXdxdnpjd2Fnbmp3aGVkNngzcW8zc3liZnlzdXBpczM2bWxqYXZzeiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/lNdz4GzldDzGMGXr2Y/giphy.gif' height=25></img> Data Scraping
 ### <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25> 2019

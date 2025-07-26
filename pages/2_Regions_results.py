@@ -74,36 +74,36 @@ if st.session_state.selected_file:
              (*{candidate_data["candidate"]}*) perform the best and worst?]')
     
     df_places = gpd.read_file(map_path)
-    df_places = df_places.merge(df_candidate, left_on='name', right_on='region_eng', how='left')
-    df_places['num_voters_per_region'] = df_places['num_voters_per_region'].fillna(0)
+    df_candidate_map = df_places.merge(df_candidate, left_on='name', right_on='region_eng', how='left')
+    df_candidate_map['num_voters_per_region'] = df_candidate_map['num_voters_per_region'].fillna(0)
 
-    df_places['centroid_lon'] = df_places.geometry.centroid.x
-    df_places['centroid_lat'] = df_places.geometry.centroid.y
+    df_candidate_map['centroid_lon'] = df_candidate_map.geometry.centroid.x
+    df_candidate_map['centroid_lat'] = df_candidate_map.geometry.centroid.y
 
-    geojson_data = df_places.__geo_interface__
+    geojson_data = df_candidate_map.__geo_interface__
 
     fig = go.Figure(go.Choroplethmapbox(
         geojson=geojson_data,
-        locations=df_places.index,
-        z=df_places['num_voters_per_region'],
+        locations=df_candidate_map.index,
+        z=df_candidate_map['num_voters_per_region'],
         colorscale='Reds',
         marker_opacity=0.6,
         marker_line_width=0.5,
-        text=df_places['region_eng'],
+        text=df_candidate_map['region_eng'],
         hoverinfo='text+z'
     ))
 
     fig.add_trace(go.Scattermapbox(
-        lon=df_places['centroid_lon'],
-        lat=df_places['centroid_lat'],
+        lon=df_candidate_map['centroid_lon'],
+        lat=df_candidate_map['centroid_lat'],
         mode='markers',
         marker=go.scattermapbox.Marker(
-            size=df_places['num_voters_per_region'] / 20000,  
+            size=df_candidate_map['num_voters_per_region'] / 20000,  
             color='red',
             opacity=0.4
         ),
-        text=df_places['region_eng'] + '<br>Votes: ' +\
-              df_places['num_voters_per_region'].astype(str),
+        text=df_candidate_map['region_eng'] + '<br>Votes: ' +\
+              df_candidate_map['num_voters_per_region'].astype(str),
         hoverinfo='text'
     ))
 
@@ -125,4 +125,101 @@ if st.session_state.selected_file:
                     and the worst at \
                         *{df_candidate[df_candidate['num_voters_per_region'] == df_candidate['num_voters_per_region'].min()]['region'].values[0]} область*")
 
+    # 3. How does each candidate's vote percentage vary across regions?
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(x=df_candidate['region'], y=df_candidate['percent_votes'], 
+                   mode='lines+markers',
+                   marker=dict(color='red'))
+    )
+
+    fig.update_layout(
+        title='Vote percentage variation across regions.',
+        yaxis=dict(
+            title='Percentage of Votes Received',
+            side='left'
+        ),
+        xaxis=dict(title='Region')
+    )
+
+    st.plotly_chart(fig)
+    
     st.subheader("📉 General Visualizations")
+    
+    # 2. Which candidate won in each region?
+    st.info(f':orange[Which candidate won in each region?]')
+
+    df_top_candidates = (
+        df
+        .groupby('region')
+        .apply(lambda group: group.nsmallest(1, columns='rating'))
+        .reset_index(level=-1, drop=True)
+    )
+
+    df_top_candidate_map = df_places.merge(df_top_candidates, 
+                                left_on='name', right_on='region_eng', 
+                                how='left')
+    df_top_candidate_map['num_voters_per_region'] = df_top_candidate_map['num_voters_per_region'].fillna(0)
+
+    df_top_candidate_map['centroid_lon'] = df_top_candidate_map.geometry.centroid.x
+    df_top_candidate_map['centroid_lat'] = df_top_candidate_map.geometry.centroid.y
+
+    geojson_data = df_top_candidate_map.__geo_interface__
+
+    fig = go.Figure()
+
+    candidate_names = df_top_candidate_map['candidate'].unique()
+    candidate_color_map = {name: i for i, name in enumerate(candidate_names)}
+    df_top_candidate_map['color_id'] = df_top_candidate_map['candidate'].map(candidate_color_map)
+    colors = px.colors.sequential.Reds
+    custom_colorscale = [[i / (len(colors) - 1), color] for i, color in enumerate(colors[:len(candidate_names)])]
+    
+    fig.add_trace(go.Choroplethmapbox(
+        geojson=geojson_data,
+        locations=df_top_candidate_map.index,  
+        z=df_top_candidate_map['color_id'], 
+        colorscale=custom_colorscale,
+        marker_opacity=0.6,
+        marker_line_width=0.5,
+        text=(
+            'Region: ' + df_top_candidate_map['region_eng'] +
+            '<br>Candidate: ' + df_top_candidate_map['candidate'] +
+            '<br>Voters: ' + df_top_candidate_map['num_voters_per_region'].astype(str)
+        ),
+        hoverinfo='text',
+        showscale=False  
+    ))
+
+    fig.add_trace(go.Scattermapbox(
+        lon=df_top_candidate_map['centroid_lon'],
+        lat=df_top_candidate_map['centroid_lat'],
+        mode='markers',
+        marker=go.scattermapbox.Marker(
+            size=df_top_candidate_map['num_voters_per_region'] / 20000,  
+            color='red',
+            opacity=0.4
+        ),
+        text=df_top_candidate_map['candidate'] + '<br>Region: ' + df_top_candidate_map['region_eng'] + '<br>Votes: ' +\
+              df_top_candidate_map['num_voters_per_region'].astype(str),
+        hoverinfo='text'
+    ))
+
+    fig.update_layout(
+        mapbox_style='open-street-map',
+        mapbox_zoom=4.5,
+        mapbox_center={'lat': 48.3, 'lon': 31},
+        margin={'r': 0, 't': 30, 'l': 0, 'b': 0},
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        title=f'Number of Voters per Region for Best Voted Candidates'
+    )
+
+    st.plotly_chart(fig)
+
+    st.markdown(
+        f""":orange[**Answer:**] There are *{df_top_candidates["candidate"].nunique()}* different winners by region: 
+        *{', '.join(df_top_candidates["candidate"].unique())}*. 
+        {'; '.join([f"{cand} won in {df_top_candidates['candidate'].value_counts()[cand]} regions" 
+                    for cand in df_top_candidates["candidate"].unique()])}"""
+    )

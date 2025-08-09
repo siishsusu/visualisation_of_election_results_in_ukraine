@@ -1,4 +1,4 @@
-# <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb21qNXUzMjg0dWh1ejNoNm1rczF6eXJjOXpkMWpheDd0eTJvZm93ZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/55m7McmQ9tcD26kQ3I/giphy.gif' height=25></img> Elections Predictor
+# <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb21qNXUzMjg0dWh1ejNoNm1rczF6eXJjOXpkMWpheDd0eTJvZm93ZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/55m7McmQ9tcD26kQ3I/giphy.gif' height=25></img> Election Visualiser
 Elections Predictor is a project aimed at forecasting election outcomes based on real-world data. The first phase of the project involves gathering publicly available election-related data through web scraping, which will later be used to analyze and train machine learning models for prediction tasks.
 
 ## <img src='https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dWF2ODFheW8xMXAybzd2ZDA3cnJsZnlwancxaWxxeHAzMTcwcGRuMSZlcD12MV9zdGlja2Vyc19yZWxhdGVkJmN0PXM/eGmNtCi4tkA9B18l3L/giphy.gif' height=25></img> Project Goals
@@ -16,7 +16,7 @@ Elections Predictor is a project aimed at forecasting election outcomes based on
 
 
 * Clean and preprocess the data for analysis
-* Build machine learning models to predict future election outcomes
+-- * Build machine learning models to predict future election outcomes
 * Visualize trends, turnout, and candidate support
 
 ## <img height=25 src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3NnamFraTl2dnlnaXB3OHJjeDd6Z29xN2VyNGZpNXh4NnJ3MHI2ZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/DDGQgJLkOlSKe08e74/giphy.gif'> Preview

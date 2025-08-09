@@ -41,7 +41,7 @@
 <img src='https://img.shields.io/badge/Plotly-239120?style=for-the-badge&logo=plotly&logoColor=white' alt='Plotly' />
 <img src='https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white' alt='pandas' />
 <img src='https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white' alt='Streamlit' />
-<img src='    https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white' alt='Numpy' />
+<img src='https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white' alt='Numpy' />
 <img src='https://img.shields.io/badge/SciPy-654FF0?style=for-the-badge&logo=SciPy&logoColor=white' alt='SciPy' />
 </div>
 

@@ -35,15 +35,19 @@
 <img src='data/gifs/regions_page.gif'>
 
 ## <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnEzcTh2YndpbHV3bTg2NmxjZjR0cmszdXZ4dXFzYzJmcW9mbGNjNSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/h1QmJxwoCr19BtTkGt/giphy.gif' height=25> Technologies Used
+
+<div style='display: flex; gap: 20px'>
 <img src='https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue' alt='Python' />
 <img src='https://img.shields.io/badge/Plotly-239120?style=for-the-badge&logo=plotly&logoColor=white' alt='Plotly' />
 <img src='https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white' alt='pandas' />
 <img src='https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white' alt='Streamlit' />
 <img src='    https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white' alt='Numpy' />
 <img src='https://img.shields.io/badge/SciPy-654FF0?style=for-the-badge&logo=SciPy&logoColor=white' alt='SciPy' />
+</div>
+
+<!--<img src='' alt='' />
 <img src='' alt='' />
-<img src='' alt='' />
-<img src='' alt='' />
+<img src='' alt='' />-->
 
 ## <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXdxdnpjd2Fnbmp3aGVkNngzcW8zc3liZnlzdXBpczM2bWxqYXZzeiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/lNdz4GzldDzGMGXr2Y/giphy.gif' height=25></img> Data Scraping
 ### <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25> 2019

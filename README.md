@@ -1,5 +1,5 @@
 # <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb21qNXUzMjg0dWh1ejNoNm1rczF6eXJjOXpkMWpheDd0eTJvZm93ZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/55m7McmQ9tcD26kQ3I/giphy.gif' height=25></img> Election Visualiser
-Elections Predictor is a project aimed at forecasting election outcomes based on real-world data. The first phase of the project involves gathering publicly available election-related data through web scraping, which will later be used to analyze and train machine learning models for prediction tasks.
+ `Election Visualiser` is an interactive data analytics and visualization project designed to explore and present election results in an accessible, engaging format. The project processes raw election data — including candidate names, regions, vote counts, and percentages — and transforms them into dynamic, intuitive visual representations. Users can interact with maps, charts, and filters to analyze voting patterns, compare candidates, and uncover regional trends.
 
 ## <img src='https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dWF2ODFheW8xMXAybzd2ZDA3cnJsZnlwancxaWxxeHAzMTcwcGRuMSZlcD12MV9zdGlja2Vyc19yZWxhdGVkJmN0PXM/eGmNtCi4tkA9B18l3L/giphy.gif' height=25></img> Project Goals
 * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> Scrape and collect historical and recent election data from reliable sources.
@@ -15,9 +15,9 @@ Elections Predictor is a project aimed at forecasting election outcomes based on
     * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> [2004](https://www.cvk.gov.ua/pls/vp2004/wp0011.html)  | [go to part of readme](#2004) 
 
 
-* Clean and preprocess the data for analysis
+* <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> Clean and preprocess the data for analysis
 -- * Build machine learning models to predict future election outcomes
-* Visualize trends, turnout, and candidate support
+* <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> Visualize trends, turnout, and candidate support
 
 ## <img height=25 src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3NnamFraTl2dnlnaXB3OHJjeDd6Z29xN2VyNGZpNXh4NnJ3MHI2ZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/DDGQgJLkOlSKe08e74/giphy.gif'> Preview
 ### Final Results Page

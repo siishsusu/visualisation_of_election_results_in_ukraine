@@ -1,6 +1,14 @@
 # <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb21qNXUzMjg0dWh1ejNoNm1rczF6eXJjOXpkMWpheDd0eTJvZm93ZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/55m7McmQ9tcD26kQ3I/giphy.gif' height=25></img> Election Visualiser
  `Election Visualiser` is an interactive data analytics and visualization project designed to explore and present election results in an accessible, engaging format. The project processes raw election data — including candidate names, regions, vote counts, and percentages — and transforms them into dynamic, intuitive visual representations. Users can interact with maps, charts, and filters to analyze voting patterns, compare candidates, and uncover regional trends.
 
+## <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjZmeHJsZng1dWVwdDgxczJ1cDZvZHJiMHQwbXlpdnc2cjc3NmxjaCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/rlSjpO1r1IXeb5qFbw/giphy.gif' height=25> Table of Contents
+1. [Project Goals](#project-goals)
+2. [Preview](#preview)
+    1. [Final Results Page](#final-results-page)
+    2. [Regions Results Page](#regions-results-page)
+3. [Technologies Used](#technologies-used)
+4. [Data Scraping](#data-scraping)
+
 ## <img src='https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dWF2ODFheW8xMXAybzd2ZDA3cnJsZnlwancxaWxxeHAzMTcwcGRuMSZlcD12MV9zdGlja2Vyc19yZWxhdGVkJmN0PXM/eGmNtCi4tkA9B18l3L/giphy.gif' height=25></img> Project Goals
 * <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=20> Scrape and collect historical and recent election data from reliable sources.
 
@@ -26,6 +34,16 @@
 ### Regions Results Page
 <img src='data/gifs/regions_page.gif'>
 
+## <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnEzcTh2YndpbHV3bTg2NmxjZjR0cmszdXZ4dXFzYzJmcW9mbGNjNSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/h1QmJxwoCr19BtTkGt/giphy.gif' height=25> Technologies Used
+<img src='https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue' alt='Python' />
+<img src='https://img.shields.io/badge/Plotly-239120?style=for-the-badge&logo=plotly&logoColor=white' alt='Plotly' />
+<img src='https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white' alt='pandas' />
+<img src='https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white' alt='Streamlit' />
+<img src='    https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white' alt='Numpy' />
+<img src='https://img.shields.io/badge/SciPy-654FF0?style=for-the-badge&logo=SciPy&logoColor=white' alt='SciPy' />
+<img src='' alt='' />
+<img src='' alt='' />
+<img src='' alt='' />
 
 ## <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXdxdnpjd2Fnbmp3aGVkNngzcW8zc3liZnlzdXBpczM2bWxqYXZzeiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/lNdz4GzldDzGMGXr2Y/giphy.gif' height=25></img> Data Scraping
 ### <img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3BjajF3MHIwZnIxcjV3Yjl1eWo4cDdhY3FpdGN0dHJrZGp0aTFxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MelhioWPAo6k4Q6BTp/giphy.gif' height=25> 2019
